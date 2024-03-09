@@ -32,7 +32,9 @@ namespace DownloadYoutubeVideo
 
         public override async Task GetInfoVideo(string videoUrl)
         {
-            await youtube.Videos.GetAsync(videoUrl);
+            var video = await youtube.Videos.GetAsync(videoUrl);
+            await Console.Out.WriteLineAsync("Название видео - " + video.Title + "\n" + "Описание видео - " + video.Description );
+
             receiver.Operation();
         }
     }

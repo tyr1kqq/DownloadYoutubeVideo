@@ -11,8 +11,9 @@ namespace DownloadYoutubeVideo
 
             string VideoUrl, OutputFilePath ;
 
-            OutputFilePath = @"C:\Users\tyr1k_qq\Desktop\Test";
-            
+            OutputFilePath = @"C://Users/tyr1k_qq/Desktop/Video/";
+
+
             VideoUrl = "https://www.youtube.com/watch?v=GkMdejyiYjQ&ab_channel=SamJones23";
             
             var sender = new SenderVideo();
