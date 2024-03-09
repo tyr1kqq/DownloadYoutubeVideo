@@ -21,16 +21,19 @@ namespace DownloadYoutubeVideo
             this.youtube = youtube;
         }
 
-        public async override void DownloadVideo(string videoUrl, string outputFilePath)
+        public override async Task DownloadVideo(string videoUrl, string outputFilePath)
         {
              var streamManifest = await youtube.Videos.Streams.GetManifestAsync(videoUrl);
             var steamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
-            await youtube.Videos.Streams.DownloadAsync(steamInfo, $"video.{steamInfo.Container}");
+
+            await youtube.Videos.Streams.DownloadAsync(steamInfo, $"{outputFilePath}video.{steamInfo.Container}");
+            receiver.Operation();
         }
 
-        public override void GetInfoVideo(string videoUrl)
+        public override async Task GetInfoVideo(string videoUrl)
         {
-            youtube.Videos.GetAsync(videoUrl);
+            await youtube.Videos.GetAsync(videoUrl);
+            receiver.Operation();
         }
     }
 }

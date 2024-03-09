@@ -15,12 +15,12 @@ namespace DownloadYoutubeVideo
             _commadVideo = commadVideo;
         }
 
-        public  void DownloadVideo(string videoUrl, string outputFilePath)
+        public async Task DownloadVideo(string videoUrl, string outputFilePath)
         {
-            _commadVideo.DownloadVideo(videoUrl , outputFilePath);
+            _commadVideo.DownloadVideo(videoUrl, outputFilePath);
         }
 
-        public void GetInfoVideo(string videoUrl)
+        public async Task GetInfoVideo(string videoUrl)
         {
             _commadVideo.GetInfoVideo(videoUrl);
         }

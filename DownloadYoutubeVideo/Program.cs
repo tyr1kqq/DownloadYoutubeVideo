@@ -5,15 +5,15 @@ namespace DownloadYoutubeVideo
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var youtube = new YoutubeClient();
 
             string VideoUrl, OutputFilePath ;
 
-            OutputFilePath = @"C://Users/tyr1k_qq/source/repos/DownloadYoutubeVideo/DownloadYoutubeVideo/bin/Debug/net6.0";
-            Console.WriteLine("Введите ссылку на видео");
-            VideoUrl = Console.ReadLine();
+            OutputFilePath = @"C:\Users\tyr1k_qq\Desktop\Test";
+            
+            VideoUrl = "https://www.youtube.com/watch?v=GkMdejyiYjQ&ab_channel=SamJones23";
             
             var sender = new SenderVideo();
 
@@ -26,8 +26,10 @@ namespace DownloadYoutubeVideo
             
             sender.SetCommand(downloadAndGetInfo);
 
-            sender.GetInfoVideo(VideoUrl);
-            sender.DownloadVideo(VideoUrl , OutputFilePath );
+           await sender.GetInfoVideo(VideoUrl);
+           await sender.DownloadVideo(VideoUrl , OutputFilePath );
+
+            Console.ReadLine();
         }
     }
 }

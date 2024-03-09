@@ -9,8 +9,8 @@ namespace DownloadYoutubeVideo
 {
     abstract class CommadVideo
     {
-        public abstract void DownloadVideo(string videoUrl, string outputFilePath);
-        public abstract void GetInfoVideo(string videoUrl);
+        public abstract Task DownloadVideo(string videoUrl, string outputFilePath);
+        public abstract Task GetInfoVideo(string videoUrl);
 
         
     }
