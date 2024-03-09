@@ -18,12 +18,12 @@ namespace DownloadYoutubeVideo
 
         async public override void DownloadVideo(string videoUrl, string outputFilePath)
         {
-           
+            await videos.DownloadAsync(videoUrl, outputFilePath);
         }
 
-        async public override void GetInfoVideo(string videoUrl)
+        public override void GetInfoVideo(string videoUrl)
         {
-
+            videos.GetAsync(videoUrl);
         }
     }
 }
