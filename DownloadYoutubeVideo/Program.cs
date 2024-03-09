@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using YoutubeExplode;
 
 namespace DownloadYoutubeVideo
 {
@@ -6,6 +7,7 @@ namespace DownloadYoutubeVideo
     {
         static void Main(string[] args)
         {
+            var youtube = new YoutubeClient();
 
             string VideoUrl, OutputFilePath ;
 
@@ -19,7 +21,7 @@ namespace DownloadYoutubeVideo
             var receiver = new Receiver();
 
             
-            var downloadAndGetInfo = new DownloadAndGetInfo(receiver);
+            var downloadAndGetInfo = new DownloadAndGetInfo(receiver , youtube);
 
             
             sender.SetCommand(downloadAndGetInfo);
